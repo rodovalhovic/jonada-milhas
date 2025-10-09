@@ -1,10 +1,10 @@
-import { Component, Input, input } from '@angular/core';
-import { NgClass } from "../../../../node_modules/@angular/common/index";
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [NgClass],
+  imports: [ CommonModule ],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
