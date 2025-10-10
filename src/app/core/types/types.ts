@@ -11,3 +11,9 @@ export interface Depoimento{
     autor: string;
     avatar: string;
 }
+
+export interface UnidadeFederativa {
+    id: number;
+    nome: string;
+    sigla: string;
+}

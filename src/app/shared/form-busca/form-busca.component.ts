@@ -10,17 +10,30 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
+import { FormBuscaService } from '../../core/services/form-busca.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-form-busca',
   standalone: true,
-  imports: [MatButtonToggleModule, CardComponent, MatIconModule, MatChipsModule, MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule, MatDatepickerModule],
+  imports: [
+    MatButtonToggleModule, 
+    CardComponent, 
+    MatIconModule, 
+    MatChipsModule, 
+    MatFormFieldModule, 
+    MatIconModule, 
+    MatInputModule, 
+    MatButtonModule, 
+    MatDatepickerModule, 
+    ReactiveFormsModule
+  ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './form-busca.component.html',
   styleUrl: './form-busca.component.scss'
 })
 export class FormBuscaComponent {
-  constructor(public dialog: MatDialog){}
+  constructor(public dialog: MatDialog, public formBuscaService: FormBuscaService){}
 
   openDialog() {
     this.dialog.open(ModalComponent);
