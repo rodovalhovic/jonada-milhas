@@ -7,8 +7,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {provideNativeDateAdapter} from '@angular/material/core';
-
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-form-busca',
@@ -19,5 +20,9 @@ import {provideNativeDateAdapter} from '@angular/material/core';
   styleUrl: './form-busca.component.scss'
 })
 export class FormBuscaComponent {
+  constructor(public dialog: MatDialog){}
 
+  openDialog() {
+    this.dialog.open(ModalComponent);
+  }
 }
