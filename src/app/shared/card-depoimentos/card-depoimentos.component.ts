@@ -1,14 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
+import { Depoimento } from '../../core/types/types';
+import { DepoimentosService } from '../../core/services/depoimentos.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-card-depoimentos',
   standalone: true,
-  imports: [ MatCardModule, ],
+  imports: [CommonModule, MatCardModule],
   templateUrl: './card-depoimentos.component.html',
   styleUrl: './card-depoimentos.component.scss'
 })
-export class CardDepoimentosComponent {
-  depoimento = `A Jornada foi uma das melhores agências de viagens que eu já experimentei. O serviço ao cliente foi excepcional, e toda a equipe foi muito atenciosa e prestativa.`;
-  autoria = 'Lauro Mattos'
+export class CardDepoimentosComponent implements OnInit {
+  depoimentos: Depoimento[] = [];
+
+  constructor(private servicoDepoimentos: DepoimentosService){}
+
+  ngOnInit(): void {
+    this.servicoDepoimentos.listarDepoimentos().subscribe(dados => this.depoimentos = dados);
+  }
 }
