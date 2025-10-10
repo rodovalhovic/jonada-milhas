@@ -1,9 +1,9 @@
-<mat-card class="card-busca" appearance="outlined">
-  <img mat-card-image src="images/cards/atacama.png" alt="Imagem de Atacama">
+<mat-card *ngFor="let item of promocoes" class="card-busca" appearance="outlined">
+  <img mat-card-image src="{{ item.imagem }}" alt="Imagem de {{ item.destino }}">
   <mat-card-content>
     <ul>
-        <li>Atacama</li>
-        <li>R$500</li>
+      <li>{{ item.destino }}</li>
+      <li>R$ {{ item.preco }}</li>
     </ul>
   </mat-card-content>
   <mat-card-actions>
