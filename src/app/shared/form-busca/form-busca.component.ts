@@ -12,22 +12,24 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
 import { FormBuscaService } from '../../core/services/form-busca.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DropdownUfComponent } from "./dropdown-uf/dropdown-uf.component";
 
 @Component({
   selector: 'app-form-busca',
   standalone: true,
   imports: [
-    MatButtonToggleModule, 
-    CardComponent, 
-    MatIconModule, 
-    MatChipsModule, 
-    MatFormFieldModule, 
-    MatIconModule, 
-    MatInputModule, 
-    MatButtonModule, 
-    MatDatepickerModule, 
-    ReactiveFormsModule
-  ],
+    MatButtonToggleModule,
+    CardComponent,
+    MatIconModule,
+    MatChipsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    ReactiveFormsModule,
+    DropdownUfComponent
+],
   providers: [provideNativeDateAdapter()],
   templateUrl: './form-busca.component.html',
   styleUrl: './form-busca.component.scss'
