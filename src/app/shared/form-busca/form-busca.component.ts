@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { CardComponent } from "../card/card.component";
 import { MatIconModule } from '@angular/material/icon';
@@ -32,7 +32,8 @@ import { DropdownUfComponent } from "./dropdown-uf/dropdown-uf.component";
 ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './form-busca.component.html',
-  styleUrl: './form-busca.component.scss'
+  styleUrl: './form-busca.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
 })
 export class FormBuscaComponent {
   constructor(public dialog: MatDialog, public formBuscaService: FormBuscaService){}

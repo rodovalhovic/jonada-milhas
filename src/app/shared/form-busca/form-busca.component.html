@@ -13,29 +13,31 @@
         </div>
         <div class="flex-container">
             <!-- Origem e destino -->
-            <app-dropdown-uf label="Origem" iconePrefix="flight_takeoff"></app-dropdown-uf>
+            <app-dropdown-uf label="Origem" iconePrefix="flight_takeoff" [control]="formBuscaService.obterControle('origem')"></app-dropdown-uf>
             <button mat-icon-button>
                 <mat-icon>sync_alt</mat-icon>
             </button>
-            <app-dropdown-uf label="Destino" iconePrefix="flight_land"></app-dropdown-uf>
+            <app-dropdown-uf label="Destino" iconePrefix="flight_land" [control]="formBuscaService.obterControle('destino')"></app-dropdown-uf>
 
-            <!-- Datas de ida e volta -->
-            <mat-form-field class="input-container">
+            <!-- Data de ida -->
+            <mat-form-field class="input-container" appearance="fill">
                 <mat-label>Data de ida</mat-label>
-                <input matInput [matDatepicker]="datepicker" placeholder="Selecione"  />
-                <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
-                <mat-datepicker #datepicker>
+                <input matInput [matDatepicker]="pickerIda" [control]="formBuscaService.obterControle('dataIda')" placeholder="Selecione">
+                <mat-datepicker-toggle matIconSuffix [for]="pickerIda"></mat-datepicker-toggle>
+                <mat-datepicker #pickerIda>
                     <mat-datepicker-actions>
                     <button mat-button matDatepickerCancel>Cancelar</button>
                     <button mat-raised-button matDatepickerApply>Aplicar</button>
                     </mat-datepicker-actions>
                 </mat-datepicker>
             </mat-form-field>
-            <mat-form-field class="input-container">
+
+            <!-- Data de volta -->
+            <mat-form-field class="input-container" appearance="fill">
                 <mat-label>Data de volta</mat-label>
-                <input matInput [matDatepicker]="datepicker" placeholder="Selecione"  />
-                <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
-                <mat-datepicker #datepicker>
+                <input matInput [matDatepicker]="pickerVolta" [control]="formBuscaService.obterControle('dataVolta')" placeholder="Selecione">
+                <mat-datepicker-toggle matIconSuffix [for]="pickerVolta"></mat-datepicker-toggle>
+                <mat-datepicker #pickerVolta>
                     <mat-datepicker-actions>
                     <button mat-button matDatepickerCancel>Cancelar</button>
                     <button mat-raised-button matDatepickerApply>Aplicar</button>
