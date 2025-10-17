@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from '../../shared/modal/modal.component';
+import { MatChipSelectionChange } from '@angular/material/chips';
 
 @Injectable({
   providedIn: 'root'
@@ -8,14 +11,14 @@ export class FormBuscaService {
 
   formBusca: FormGroup;
 
-  constructor() { 
-
+  constructor(private dialog: MatDialog) { 
     this.formBusca = new FormGroup({
       somenteIda: new FormControl(false),
       origem: new FormControl(null),
       destino: new FormControl(null),
       dataIda: new FormControl(null),
-      dataVolta: new FormControl(null)
+      dataVolta: new FormControl(null),
+      tipo: new FormControl("Executiva")
     })
   }
 
@@ -26,4 +29,19 @@ export class FormBuscaService {
     }
     return control as FormControl;
   }
+
+  alterarTipo(evento: MatChipSelectionChange, tipo: string){
+    if(evento.selected){
+      this.formBusca.patchValue({
+        tipo,
+      })
+      console.log('Tipo de passagem alterado para: ', tipo)
+    }
+  }
+
+  openDialog() {
+    this.dialog.open(ModalComponent, {
+        width: '50%'
+    })
+}
 }
