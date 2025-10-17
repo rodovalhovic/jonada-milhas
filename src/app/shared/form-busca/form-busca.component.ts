@@ -41,4 +41,8 @@ export class FormBuscaComponent {
   openDialog() {
     this.dialog.open(ModalComponent);
   }
+
+  buscar(){
+    console.log(this.formBuscaService.formBusca.value)
+  }
 }
